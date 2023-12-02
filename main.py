@@ -37,25 +37,25 @@ pygame.font.init()
 font = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
 
 # Load the floor image
-floor_image = pygame.image.load("floorGreen.png")
-bc_image = pygame.image.load("bc.png")
+floor_image = pygame.image.load("grounds/floorGreen.png")
+bc_image = pygame.image.load("background/bc.png")
 
 character_run = [
-    pygame.transform.scale(pygame.image.load("run (1).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("run (2).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("run (6).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("run (9).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("run (10).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("run (11).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (1).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (2).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (6).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (9).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (10).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/run/run (11).png"), (225, 225)),
 ]
 
 character_images = [
-    pygame.transform.scale(pygame.image.load("idle (1).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("idle (2).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("idle (3).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("idle (4).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("idle (5).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("idle (6).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (1).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (2).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (3).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (4).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (5).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/idle/idle (6).png"), (225, 225)),
 ]
 
 character_attack = [
@@ -65,12 +65,12 @@ character_attack = [
     # pygame.transform.scale(pygame.image.load("attack (4).png"), (225, 225)),
     # pygame.transform.scale(pygame.image.load("attack (5).png"), (225, 225)),
     # pygame.transform.scale(pygame.image.load("attack (6).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (7).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (8).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (9).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (10).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (11).png"), (225, 225)),
-    pygame.transform.scale(pygame.image.load("attack (12).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (7).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (8).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (9).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (10).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (11).png"), (225, 225)),
+    pygame.transform.scale(pygame.image.load("sprites/attack/attack (12).png"), (225, 225)),
 ]
 # Create mirrored character images
 mirrored_character_images = [pygame.transform.flip(image, True, False) for image in character_images]
@@ -80,7 +80,7 @@ mirrored_character_run = [pygame.transform.flip(image, True, False) for image in
 text_offset = 40 # Przesunięcie tekstu względem przycisków
 button_offset = 10  # Przesunięcie pionowe od podłogi
 floor_height = screen_height - floor_image.get_height()
-button_image = pygame.image.load("button1.png")
+button_image = pygame.image.load("HUD/button1.png")
 resize_button_image = pygame.transform.scale(button_image, (100, 50))
 ROCK_BUTTON = pygame.Rect(30, floor_height + text_offset, 100, 50)
 PAPER_BUTTON = pygame.Rect(140, floor_height + text_offset, 100, 50)
@@ -110,11 +110,11 @@ def healt_bar(healt, max_healt, position, is_enemy=False):
     proporcja_zycia = max(healt / max_healt, 0)  # Zapewnienie, że proporcja zycia jest nieujemna
     szerokosc_zycia = int(hbar_width * proporcja_zycia)
     
-    hp_back_image = pygame.image.load("hp_back.png")
+    hp_back_image = pygame.image.load("HUD\hp_back.png")
     hp_back_image = pygame.transform.scale(hp_back_image, (hbar_width+40, hbar_height+10))
     
     if szerokosc_zycia > 0:  # Sprawdzenie, czy szerokosc zycia jest wieksza od zera
-        greenbar_image = pygame.image.load("HP_bar.png")
+        greenbar_image = pygame.image.load("HUD\HP_bar.png")
         greenbar_image = pygame.transform.scale(greenbar_image, (szerokosc_zycia, hbar_height))  # Zmniejszenie grafiki
         
         if is_enemy:
